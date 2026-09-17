@@ -1,5 +1,9 @@
 # 1-4 Polecenia
 from flask import Flask
+from flask import url_for
+from flask import redirect
+from flask import Flask, request
+from flask import abort
 
 app = Flask(__name__)
 
@@ -40,7 +44,6 @@ def tabela(n):
     return f"<pre>{wynik}</pre>"
 
 # Zadanie 4
-from flask import Flask, request
 
 @app.route("/produkty")
 def produkty():
@@ -54,7 +57,6 @@ def produkty():
 # ,,&" w linkach powoduje to że to jest takie ala ,,i" i dzięki temu możemy edytować drugą zawartość która nam przeszkadza na własną
 
 # Zadanie 5
-from flask import abort
 
 PRODUKTY = {1: "Produkty", 2: "ogłoszenia", 3: "sale", 4: "Posty", 5: "domena"}
 
@@ -74,6 +76,12 @@ def wszystkie_elementy():
         tekst += nazwa + "<br>"
         # Zwróć tekst, będzie robił dopuki skończy się for nazwa, czyli wykona polecenie 5 razy.
     return tekst
+
+# Zadanie 6
+
+@app.route("/start")
+def stary():
+    return redirect(url_for("index"))
 
 if __name__ == "__main__":
     app.run(debug=True)
