@@ -28,7 +28,7 @@ def pomnoz(a, b):
 @app.route("/podziel/<int:a>/<int:b>")
 def podziel(a, b):
     if b == 0:
-        return "Nie dzielimy przez zero", 400
+        return "Nie dzielimy przez zero", 400 # Kod błędu
     return f"{a} / {b} = {a /b}"
 
 # Zadnaie 3
