@@ -27,5 +27,18 @@ def podziel(a, b):
         return "Nie dzielimy przez zero", 400
     return f"{a} / {b} = {a /b}"
 
+# Zadnaie 3
+
+@app.route("/tabliczka/<int:n>")
+def tabela(n):
+    if n < 1 or n > 20:
+        return "Wpisz w przedziale 1-20"
+    wynik = ""
+    for i in range(1, n + 1):
+        for j in range(1, n + 1):
+            wynik += f"{i * j:4}"
+        wynik += "\n" 
+    return f"<pre>{wynik}</pre>"
+
 if __name__ == "__main__":
     app.run(debug=True)
