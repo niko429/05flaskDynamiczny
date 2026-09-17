@@ -53,5 +53,27 @@ def produkty():
 # ?kat=x powoduje to że ,,Kategoria" będzie miała x zamiast wszystkie. Czyli my wybieramy tą kategorię i edytujemy jej zawartość za pomocą linka.
 # ,,&" w linkach powoduje to że to jest takie ala ,,i" i dzięki temu możemy edytować drugą zawartość która nam przeszkadza na własną
 
+# Zadanie 5
+from flask import abort
+
+PRODUKTY = {1: "Produkty", 2: "ogłoszenia", 3: "sale", 4: "Posty", 5: "domena"}
+
+@app.route("/element/<int:id>")
+def produkt(id):
+    if id not in PRODUKTY:
+        abort(404)
+    return f"Produkt: {PRODUKTY[id]}"
+
+@app.route("/elementy")
+def wszystkie_elementy():
+    # Zmienna która jest stringiem i nic nie ma w sobie
+    tekst = ""
+    # Dla zmiennej ,,nazwa" w Produktach z wartością 
+    for nazwa in PRODUKTY.values():
+        # Dodaj do zmniennej tekst zawartość nazwa oraz łamanie lini
+        tekst += nazwa + "<br>"
+        # Zwróć tekst, będzie robił dopuki skończy się for nazwa, czyli wykona polecenie 5 razy.
+    return tekst
+
 if __name__ == "__main__":
     app.run(debug=True)
