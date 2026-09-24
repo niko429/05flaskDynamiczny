@@ -6,7 +6,7 @@ app = Flask(__name__)
 def imie(imie):
     return f"Cześć, {imie}"
 
-@app.route("czesc/<imie>/<int:wiek>")
+@app.route("/czesc/<imie>/<int:wiek>")
 def imieWiek(imie,wiek):
     return f"Cześć, {imie}, masz {wiek} lat"
 
