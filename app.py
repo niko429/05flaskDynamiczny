@@ -10,5 +10,9 @@ def imie(imie):
 def imieWiek(imie,wiek):
     return f"Cześć, {imie}, masz {wiek} lat"
 
+@app.route("/dodaj/<int:a>/<int:b>")
+def dod(a,b):
+    return f"{a} + {b} = {a + b}"
+
 if __name__ == "__main__":
     app.run(debug=True)
