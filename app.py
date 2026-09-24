@@ -18,5 +18,9 @@ def dod(a,b):
 def min(a,b):
     return f"{a} - {b} = {a - b}"
 
+@app.route("/pomnoz/<int:a>/<int:b>")
+def mno(a,b):
+    return f"{a} * {b} = {a * b}"
+
 if __name__ == "__main__":
     app.run(debug=True)
