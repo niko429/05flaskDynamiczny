@@ -22,5 +22,9 @@ def min(a,b):
 def mno(a,b):
     return f"{a} * {b} = {a * b}"
 
+@app.route("/podziel/<int:a>/<int:b>")
+def dziel(a,b):
+    return f"{a} / {b} = {a / b}"
+
 if __name__ == "__main__":
     app.run(debug=True)
