@@ -24,7 +24,10 @@ def mno(a,b):
 
 @app.route("/podziel/<int:a>/<int:b>")
 def dziel(a,b):
-    return f"{a} / {b} = {a / b}"
+    if a == 0 or b == 0:
+        return "Dzielenie przez zero jest nie wykonywalne", 400
+    else:
+        return f"{a} / {b} = {a / b}"
 
 if __name__ == "__main__":
     app.run(debug=True)
