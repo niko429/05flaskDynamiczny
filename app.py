@@ -29,5 +29,17 @@ def dziel(a,b):
     else:
         return f"{a} / {b} = {a / b}"
 
+@app.route("/tabliczka/<int:n>")
+def tab(n):
+    if n < 1 or n > 20:
+        return f"Liczba {n} jest poza zakresem.", 400
+    else:
+        tekst = ""
+        i = 1
+        while i <= 20:
+            tekst += f"{n} * {i} = {n * i}\n"
+            i += 1
+        return tekst
+
 if __name__ == "__main__":
     app.run(debug=True)
