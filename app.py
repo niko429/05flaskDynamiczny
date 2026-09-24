@@ -72,3 +72,5 @@ def start():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+# Dodaj ten komentarz bo tak
