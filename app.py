@@ -14,5 +14,9 @@ def imieWiek(imie,wiek):
 def dod(a,b):
     return f"{a} + {b} = {a + b}"
 
+@app.route("/odejmnij/<int:a>/<int:b>")
+def min(a,b):
+    return f"{a} - {b} = {a - b}"
+
 if __name__ == "__main__":
     app.run(debug=True)
