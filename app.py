@@ -63,5 +63,12 @@ def elementy(id):
 def element():
     return f"{ELEMENTY}"
 
+from flask import url_for
+from flask import redirect
+
+@app.route("/start")
+def start():
+    return redirect(url_for("/"))
+
 if __name__ == "__main__":
     app.run(debug=True)
