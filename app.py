@@ -49,5 +49,16 @@ def pro():
     sort = request.args.get("sort", type=int)
     return f"Kategoria: {kat}, sortowanie: Y. Cena {sort}"
 
+from flask import abort
+
+ELEMENTY = {1: "produkty", 2: "ogłoszenia", 3: "sale", 4: "posty"}
+
+@app.route("/element/<int:id>")
+def elementy(id):
+    if id not in ELEMENTY:
+        abort(404)
+    return f"Element: {ELEMENTY[id]}"
+
+
 if __name__ == "__main__":
     app.run(debug=True)
