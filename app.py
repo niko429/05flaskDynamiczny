@@ -41,5 +41,13 @@ def tab(n):
             i += 1
         return tekst
 
+from flask import Flask, request
+
+@app.route("/produkty")
+def pro():
+    kat = request.args.get("kat", "wszystkie, domyślne")
+    sort = request.args.get("sort", type=int)
+    return f"Kategoria: {kat}, sortowanie: Y. Cena {sort}"
+
 if __name__ == "__main__":
     app.run(debug=True)
