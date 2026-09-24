@@ -59,6 +59,9 @@ def elementy(id):
         abort(404)
     return f"Element: {ELEMENTY[id]}"
 
+@app.route("/element")
+def element():
+    return f"{ELEMENTY}"
 
 if __name__ == "__main__":
     app.run(debug=True)
